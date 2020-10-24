@@ -21,19 +21,25 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping(value="/filter")
-    public  String filter(Model model ,
-                          @RequestParam(name= "task_name" , defaultValue = "null" ) String name ,
-                          @RequestParam(name = "deadline_from" , defaultValue = "null")String deadline_from,
-                          @RequestParam(name = "deadline_to" , defaultValue = "null")String deadline_to,
-                          @RequestParam(name = "completed" , defaultValue = "null")String completed) throws ParseException {
+    @GetMapping(value = "/newFilter")
+    public String newFilter() {
+        return "home";
+    }
+
+    @GetMapping(value = "/filter")
+    public String filter(Model model,
+                         @RequestParam(name = "task_name", defaultValue = "null") String name,
+                         @RequestParam(name = "deadline_from", defaultValue = "null") String deadline_from,
+                         @RequestParam(name = "deadline_to", defaultValue = "null") String deadline_to,
+                         @RequestParam(name = "completed", defaultValue = "null") String completed) throws ParseException {
+
         ArrayList<Task> tasks = new ArrayList<>();
         if (!name.equals("null") || !deadline_from.equals("null") ||
                 !deadline_to.equals("null") || !completed.equals("null")) {
-            tasks = DBmanager.filter(name , deadline_from , deadline_to , completed);
+            tasks = DBmanager.filter(name, deadline_from, deadline_to, completed);
         }
-        model.addAttribute("tasks" , tasks);
-        return  "home";
+        model.addAttribute("tasks", tasks);
+        return "home";
     }
 
     @GetMapping(value= "/details/{idishka}")
