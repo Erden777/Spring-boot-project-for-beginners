@@ -36,9 +36,6 @@ public class DBmanager {
         return null;
     }
 
-
-
-
     public static ArrayList<Task> filter(String name,String deadlineFrom,String deadlineTo,String completed) throws ParseException {
         ArrayList<Task> t = new ArrayList<>();
         boolean c = false;
