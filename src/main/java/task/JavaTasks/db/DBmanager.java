@@ -32,7 +32,6 @@ public class DBmanager {
             if (t.getId() == id) {
                 return t;
             }
-
         }
         return null;
     }
