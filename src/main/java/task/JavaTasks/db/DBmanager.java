@@ -94,6 +94,10 @@ public class DBmanager {
         return t;
     }
 
+    public static void newFunction() {
+        System.out.println("Test function for girhub");
+    }
+
     public static void edit(Task task){
         for (Task t : tasks) {
             if(t.getId().equals(task.getId())){
